@@ -23,14 +23,14 @@ import java.nio.file.Path;
 )
 public class PokemonSpawnController {
 
-    private static Path configDir;
     public static final String MOD_ID = "pokemonspawncontroller";
-    public static final String MOD_NAME = "LeggySpawnController";
+    public static final String MOD_NAME = "PokemonSpawnController";
     public static final String VERSION = "1.0-SNAPSHOT";
 
     @Mod.Instance(MOD_ID)
     public static PokemonSpawnController INSTANCE;
 
+    private static Path configDir;
     public static StorageManager storageManager;
     public static MainConfig mainConfig;
 
@@ -39,6 +39,8 @@ public class PokemonSpawnController {
         configDir = event.getModConfigurationDirectory().toPath().resolve("PokemonSpawnController");
         storageManager = new StorageManager(configDir);
         mainConfig = new MainConfig(new File(configDir.resolve("config.conf").toString()));
+
+
 
         Pixelmon.EVENT_BUS.register(new Spawning());
     }
@@ -61,6 +63,18 @@ public class PokemonSpawnController {
     @Mod.EventHandler
     public void serverStarting(FMLServerStartingEvent event) {
         event.registerServerCommand(new ReloadCmd());
+    }
+
+    public static MainConfig getMainConfig() {
+        return mainConfig;
+    }
+
+    public static StorageManager getStorageManager() {
+        return storageManager;
+    }
+
+    public static Path getConfigDir() {
+        return configDir;
     }
 }
 

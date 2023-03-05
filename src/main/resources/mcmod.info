@@ -1,7 +1,7 @@
 [
   {
-    "modid": "LeggySpawnController",
-    "name": "LeggySpawnController",
+    "modid": "PokemonSpawnController",
+    "name": "PokemonSpawnController",
     "description": "",
     "version": "${version}",
     "mcversion": "${mcversion}",

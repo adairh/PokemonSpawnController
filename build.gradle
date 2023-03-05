@@ -3,11 +3,11 @@ plugins {
 }
 
 
-group = 'me.hyhon.LeggySpawnController'
+group = 'me.hyhon.PokemonSpawnController'
 version = '1.0-SNAPSHOT'
 
 java {
-    archivesBaseName = 'LeggySpawnController'
+    archivesBaseName = 'PokemonSpawnController'
     toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 
@@ -51,7 +51,7 @@ minecraft {
 
 
             mods {
-                leggyspawncontroller {
+                pokemonspawncontroller {
                     source sourceSets.main
                 }
             }
@@ -66,7 +66,7 @@ minecraft {
 
 
             mods {
-                leggyspawncontroller {
+                pokemonspawncontroller {
                     source sourceSets.main
                 }
             }
@@ -93,7 +93,8 @@ dependencies {
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
-    compileOnly 'org.spongepowered:spongeapi:7.3.0'
+    compileOnly 'org.spongepowered:spongeapi:7.4.0'
+    implementation 'org.spongepowered:configurate-gson:4.0.0'
     compileOnly files("libs/Pixelmon-1.12.2-8.4.2-universal.jar")
     implementation 'org.spongepowered:configurate-gson:4.0.0'
 
@@ -114,7 +115,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "leggyspawncontroller",
+                "Specification-Title"     : "pokemonspawncontroller",
                 "Specification-Vendor"    : "hyhon",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,

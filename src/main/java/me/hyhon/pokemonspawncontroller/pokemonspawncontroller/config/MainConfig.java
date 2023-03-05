@@ -3,11 +3,14 @@ package me.hyhon.pokemonspawncontroller.pokemonspawncontroller.config;
 import info.pixelmon.repack.ninja.leaping.configurate.ConfigurationNode;
 import info.pixelmon.repack.ninja.leaping.configurate.hocon.HoconConfigurationLoader;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.fml.common.FMLLog;
+import org.apache.logging.log4j.Level;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 import org.spongepowered.configurate.objectmapping.meta.Setting;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,26 +33,22 @@ public class MainConfig {
 		this.configMap = new HashMap<String, Long>();
 		this.configFile = configFile;
 		try {
+			if (!configFile.exists())
+			{
+				configFile.createNewFile();
+			}
 			loadConfig();
 		} catch (Exception e){}
 	}
 
 
-	private void loadConfig() throws IOException {
+	private void loadConfig() throws IOException, IllegalAccessException {
 		loader = HoconConfigurationLoader.builder().setFile(configFile).build();
 		rootNode = loader.load();
-
-
-
+		if (rootNode.getNode("delay").isVirtual()) writeSampleConfig();
+		//if (rootNode.getNode("settings").isVirtual()) writeSettingsToConfig();
 		if (configFile.exists() && configFile.length() > 0) {
-			//FMLLog.log(Level.WARN, "111111111111111111111111111111");
-
-
-			if (rootNode.getNode("delay").isVirtual()) {
-				rootNode.getNode("delay").getNode("Rayquaza").setValue(100);
-				loader.save(rootNode);
-			}
-			else {
+			if (!rootNode.getNode("delay").isVirtual()) {
 				if (rootNode.getNode("delay").hasMapChildren()) {
 					Map<Object, ? extends ConfigurationNode> childrenMap = rootNode.getNode("delay").getChildrenMap();
 					for (Map.Entry<Object, ? extends ConfigurationNode> entry : childrenMap.entrySet()) {
@@ -71,7 +70,7 @@ public class MainConfig {
 			saveConfig();
 			configMap.clear();
 			loadConfig();
-		} catch (IOException e) {
+		} catch (Exception e) {
 		}
 	}
 
@@ -85,4 +84,12 @@ public class MainConfig {
 	public HashMap<String, Long> getConfigMap() {
 		return configMap;
 	}
+
+
+	private void writeSampleConfig() throws IOException {
+		rootNode.getNode("delay").getNode("Rayquaza").setValue(100);
+		rootNode.getNode("delay").getNode("Rattata").setValue(100);
+		loader.save(rootNode);
+	}
+
 }
