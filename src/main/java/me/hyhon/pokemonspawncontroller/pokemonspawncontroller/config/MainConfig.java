@@ -1,27 +1,13 @@
-package me.hyhon.leggyspawncontroller.leggyspawncontroller.config;
+package me.hyhon.pokemonspawncontroller.pokemonspawncontroller.config;
 
-import com.pixelmonmod.pixelmon.Pixelmon;
-import com.pixelmonmod.pixelmon.api.pokemon.PokemonSpec;
-import com.pixelmonmod.pixelmon.enums.EnumSpecies;
 import info.pixelmon.repack.ninja.leaping.configurate.ConfigurationNode;
 import info.pixelmon.repack.ninja.leaping.configurate.hocon.HoconConfigurationLoader;
-import io.leangen.geantyref.TypeToken;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.serializers.BigDecimalSerializer;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.serializers.TextComponentStringSerializer;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
-import net.minecraftforge.fml.common.FMLLog;
-import org.apache.logging.log4j.Level;
-import org.spongepowered.configurate.gson.GsonConfigurationLoader;
 import org.spongepowered.configurate.objectmapping.ConfigSerializable;
 import org.spongepowered.configurate.objectmapping.meta.Setting;
 
 import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 

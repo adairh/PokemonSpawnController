@@ -1,10 +1,10 @@
-package me.hyhon.leggyspawncontroller.leggyspawncontroller;
+package me.hyhon.pokemonspawncontroller.pokemonspawncontroller;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.Manager.StorageManager;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.commands.ReloadCmd;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.config.MainConfig;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.events.Spawning;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.Manager.StorageManager;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.commands.ReloadCmd;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.config.MainConfig;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.events.Spawning;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -15,28 +15,28 @@ import java.io.File;
 import java.nio.file.Path;
 
 @Mod(
-        modid = LeggySpawnController.MOD_ID,
-        name = LeggySpawnController.MOD_NAME,
-        version = LeggySpawnController.VERSION,
+        modid = PokemonSpawnController.MOD_ID,
+        name = PokemonSpawnController.MOD_NAME,
+        version = PokemonSpawnController.VERSION,
         dependencies = "required-server-after:pixelmon",
         acceptableRemoteVersions = "*"
 )
-public class LeggySpawnController {
+public class PokemonSpawnController {
 
     private static Path configDir;
-    public static final String MOD_ID = "leggyspawncontroller";
+    public static final String MOD_ID = "pokemonspawncontroller";
     public static final String MOD_NAME = "LeggySpawnController";
     public static final String VERSION = "1.0-SNAPSHOT";
 
     @Mod.Instance(MOD_ID)
-    public static LeggySpawnController INSTANCE;
+    public static PokemonSpawnController INSTANCE;
 
     public static StorageManager storageManager;
     public static MainConfig mainConfig;
 
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
-        configDir = event.getModConfigurationDirectory().toPath().resolve("LeggySpawnController");
+        configDir = event.getModConfigurationDirectory().toPath().resolve("PokemonSpawnController");
         storageManager = new StorageManager(configDir);
         mainConfig = new MainConfig(new File(configDir.resolve("config.conf").toString()));
 

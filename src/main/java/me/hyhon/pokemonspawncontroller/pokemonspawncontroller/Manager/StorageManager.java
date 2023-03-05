@@ -1,4 +1,4 @@
-package me.hyhon.leggyspawncontroller.leggyspawncontroller.Manager;
+package me.hyhon.pokemonspawncontroller.pokemonspawncontroller.Manager;
 
 import com.google.gson.Gson;
 

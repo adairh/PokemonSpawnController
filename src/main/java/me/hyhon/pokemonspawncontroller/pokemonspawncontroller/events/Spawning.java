@@ -1,28 +1,24 @@
-package me.hyhon.leggyspawncontroller.leggyspawncontroller.events;
+package me.hyhon.pokemonspawncontroller.pokemonspawncontroller.events;
 
-import com.pixelmonmod.pixelmon.api.events.spawning.LegendarySpawnEvent;
 import com.pixelmonmod.pixelmon.api.events.spawning.SpawnEvent;
-import com.pixelmonmod.pixelmon.api.pokemon.Pokemon;
 import com.pixelmonmod.pixelmon.api.spawning.SpawnAction;
 import com.pixelmonmod.pixelmon.api.spawning.archetypes.entities.pokemon.SpawnActionPokemon;
 import com.pixelmonmod.pixelmon.entities.pixelmon.EntityPixelmon;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.LeggySpawnController;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.config.MainConfig;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.Manager.StorageManager;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.PokemonSpawnController;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.config.MainConfig;
+import me.hyhon.pokemonspawncontroller.pokemonspawncontroller.Manager.StorageManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Optional;
 
 public class Spawning {
 
     @SubscribeEvent
     public void onLegendarySpawn(SpawnEvent event) {
-        StorageManager sm = LeggySpawnController.storageManager;
-        MainConfig mc = LeggySpawnController.mainConfig;
+        StorageManager sm = PokemonSpawnController.storageManager;
+        MainConfig mc = PokemonSpawnController.mainConfig;
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String sdate = sdf.format(new Date());
