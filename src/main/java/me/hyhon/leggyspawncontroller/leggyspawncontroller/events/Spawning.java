@@ -1,18 +1,10 @@
 package me.hyhon.leggyspawncontroller.leggyspawncontroller.events;
 
 import com.pixelmonmod.pixelmon.api.events.spawning.LegendarySpawnEvent;
-import com.pixelmonmod.pixelmon.api.events.spawning.SpawnEvent;
-import jdk.jfr.internal.tool.Main;
 import me.hyhon.leggyspawncontroller.leggyspawncontroller.LeggySpawnController;
-import me.hyhon.leggyspawncontroller.leggyspawncontroller.MainConfig;
+import me.hyhon.leggyspawncontroller.leggyspawncontroller.config.MainConfig;
 import me.hyhon.leggyspawncontroller.leggyspawncontroller.Manager.StorageManager;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.apache.logging.log4j.Level;
-import org.spongepowered.api.event.Listener;
-import org.spongepowered.api.event.Order;
-import org.spongepowered.api.event.filter.type.Exclude;
-import org.spongepowered.api.event.filter.type.Include;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

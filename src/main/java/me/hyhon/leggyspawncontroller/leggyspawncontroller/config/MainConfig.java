@@ -1,4 +1,4 @@
-package me.hyhon.leggyspawncontroller.leggyspawncontroller;
+package me.hyhon.leggyspawncontroller.leggyspawncontroller.config;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
 import com.pixelmonmod.pixelmon.api.pokemon.PokemonSpec;
@@ -28,6 +28,13 @@ public class MainConfig {
 	private Configuration config;
 	private HashMap<String, Long> configMap;
 
+	public TextComponentString getReloadMessage() {
+		return reloadMsg;
+	}
+
+	@Setting("reload-message")
+	private TextComponentString reloadMsg = new TextComponentString("&e&lConfig reloaded.");
+
 	public MainConfig(File configFile) {
 		this.configMap = new HashMap<String, Long>();
 		this.configFile = configFile;
@@ -50,7 +57,8 @@ public class MainConfig {
 		if (configFile.exists() && configFile.length() > 0) {
 			//FMLLog.log(Level.WARN, "111111111111111111111111111111");
 
-			if (config.getCategoryNames().size() <= 0) {
+
+			if (config.getCategory("delay").getValues().keySet().size() <= 0) {
 
 				Property myProperty = getProperty("delay", "Rayquaza", 100, "");
 				myProperty.set(100);

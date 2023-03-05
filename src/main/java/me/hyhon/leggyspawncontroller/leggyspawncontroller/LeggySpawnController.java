@@ -2,11 +2,14 @@ package me.hyhon.leggyspawncontroller.leggyspawncontroller;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
 import me.hyhon.leggyspawncontroller.leggyspawncontroller.Manager.StorageManager;
+import me.hyhon.leggyspawncontroller.leggyspawncontroller.commands.ReloadCmd;
+import me.hyhon.leggyspawncontroller.leggyspawncontroller.config.MainConfig;
 import me.hyhon.leggyspawncontroller.leggyspawncontroller.events.Spawning;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 import java.io.File;
 import java.nio.file.Path;
@@ -55,6 +58,11 @@ public class LeggySpawnController {
 
     }
 
+    @Mod.EventHandler
+    public void serverStarting(FMLServerStartingEvent event) {
+        event.registerServerCommand(new ReloadCmd());
+    }
 }
+
 
 
